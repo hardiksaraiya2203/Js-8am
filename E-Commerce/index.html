@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="image/Logo.svg">
+  <title>Shoppin</title>
+  <script src="https://kit.fontawesome.com/52ca9e0df4.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="web-container">
+    <div class="select">
+        <select name="" id="select" onchange="dropDown()">
+            <option value="select" selected>select</option>
+            <option value="atoz">A to Z</option>
+            <option value="ztoa">Z to A</option>
+            <option value="lowtohigh">Low To High</option>
+            <option value="hightolow">High To Low</option>
+        </select>
+    </div>
+    <header>
+      <div class="row px-5 justify-content-between align-content-center g-0 fsP">
+        <div class="col-8 d-flex flex-wrap align-items-center justify-content-between">
+          <a href="tel:+(002) 0106-1245-741"><i class="fa-solid fa-phone" aria-hidden="true"></i>
+            Phone: +(002) 0106-1245-741</a>
+          <a href="mailto:FindMood@7oroof.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email:
+            FindMood@7oroof.com</a>
+          <span id="Date"><i class="fa-solid fa-clock"></i> Hours: Mon-Fri: 8am - 7pm</span>
+
+        </div>
+        <div class="col-3 d-flex flex-wrap align-items-center justify-content-between">
+
+          <a href="#"><i class="social fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#"><i class="social fa-brands fa-twitter" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+
+          <span class="py-sm-2 ms-sm-4" id="Flag"> <img class="w-100" src="image/Flag.png" alt=""></span>
+          <select class="fw-bold" name="Language" id="lang">
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Gujrati">Gujrati</option>
+          </select>
+        </div>
+      </div>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-white ps-5">
+
+        <a class="navbar-brand" href="index.html"><img class="w-100" src="image/Logo.svg" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link active dropdown-toggle" aria-current="page" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Company
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Customer Service
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                News&Media
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Features
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contacts</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <button class="btn text-capitalize fw-bold" type="submit">Request A Quote</button>
+          </form>
+          <i class="fa-solid fa-magnifying-glass fa-xl p-md-3 p-2"></i>
+        </div>
+
+      </nav>
+    </header>
+
+    <section class="section2 border-bottom">
+      <div class="container d-flex flex-wrap flex-column justify-content-between align-items-center">
+        <h1 class="h1 text-center Pop-Up"> Shopping Adda</h1>
+        <div class="companies align-self-start " id="companies">
+          <button class="company-btn px-3 py-2 border-0 fw-bold">Categories</button>
+          <button class="company-btn px-3 py-2 border-0 fw-bold" onclick="All()">All</button>
+        </div>
+      </div>
+    </section>
+    <section class="section3">
+      <div class="container">
+        <div class="row">
+
+
+          <aside class="col-3 d-inline-block">
+            <h2 class="h2 fsP fw-bold mt-3">Filter By</h2>
+            <button class="company-btn py-2 border-0 fw-bold w-100 green my-2" id="btn1" onclick="LowToHigh(a)">Price:
+              High to Low
+              <button class="company-btn py-2 border-0 fw-bold w-100 green my-2" onclick="LowToHigh(a)">Price: Low to
+                High</button>
+              <button class="company-btn py-2 border-0 fw-bold w-100 green my-2" onclick="atoz(a)">A to Z</button>
+              <button class="company-btn py-2 border-0 fw-bold w-100 green my-2" onclick="ztoa(a)">Z to A</button>
+
+          </aside>
+
+          <div class="col d-flex flex-wrap align-items-start justify-content-start " id="products">
+            <div class=" col-sm-6 col-md-4 p-2">
+              <div class="product-card">
+                <div class="image">
+                  <img w-100 src="https://images.pexels.com/photos/7974/pexels-photo.jpg" alt="Product Image">
+                </div>
+                <h2>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h2>
+                <p class="price">Price: $109.95</p>
+                <div class="rating">
+                  <span class="star fw-bold"> Rating 3.9</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9734;</span>
+                </div>
+                <p class="description"><small> Your perfect pack for everyday use and walks in the forest. Stash your
+                    laptop
+                    (up to 15 inches) in the padded sleeve, your everyday</small></p>
+                <p class="category fw-bold mb-0">Category: men's clothing</p>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="product.js"></script>
+</body>
+
+</html>

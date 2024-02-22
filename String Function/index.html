@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Functions</title>
+</head>
+
+<body>
+<div id="dis"></div>
+
+
+
+    <input type="text" name="Search" id="searchTerm">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>postId</th>
+                <th>id
+                    <select name="" id="selectId" onchange="filterId(this)">
+                        <option value="Equal">Equal</option>
+                        <option value="Not-Equal">Not-Equal</option>
+                        <option value="Ascending">Ascending</option>
+                        <option value="Descending">Descending</option>
+                    </select>
+                </th>
+                <th>name</th>
+                <th>email</th>
+                <th>body
+                    <select name="" id="selectBody" onchange="filterBody(this)">
+                        <option value="C">Contains</option>
+                        <option value="NC">Not-Contains</option>
+                        <option value="S">Start-With</option>
+                        <option value="EW">Ends-With</option>
+                        <option value="E">Equal</option>
+                        <option value="NE">Not-Equal</option>
+                    </select>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="display">
+
+        </tbody>
+    </table>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

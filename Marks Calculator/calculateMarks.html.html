@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Percentage</title>
+
+
+    <style>
+        body {
+            background-image: linear-gradient(120deg, #62a5fce4, #c85bc2e4);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+        }
+
+        form.fifty {
+            width: 50%;
+            margin: 50px auto;
+            box-shadow: 0px 0px 4px 3px #9dcdc9;
+            padding: 50px;
+            background-color: white;
+            border-radius: 40px;
+        }
+
+        div.fifty {
+            width: 48%;
+            display: inline-block;
+        }
+
+        div.fifty input {
+            width: 90%;
+            padding: 0px 20px;
+            height: 55px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        div.fifty input:focus::placeholder {
+
+            transform: translateY(-16px);
+            font-size: 14px;
+            transition: all .5s;
+        }
+
+        div.fifty label {
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        div.fifty input:focus {
+            box-shadow: 0px 0px 4px 3px #9dcdc9;
+        }
+
+        .tc {
+            text-align: center;
+        }
+
+        .tc #CalculateResult {
+            display: inline-block;
+            width: 20%;
+            padding: 0px 20px;
+            height: 45px;
+            border-radius: 5px;
+            margin: 10px 0;
+            background-image: linear-gradient(120deg, #62a5fce4, #c85bc2e4);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        table th,
+        td {
+            width: auto;
+            text-align: center;
+            padding: 10px 20px;
+            border: 2px solid rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 4px;
+        }
+
+        .g {
+            height: 30px;
+        }
+
+        table {
+            background-color: white;
+            margin: auto;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="#" class="fifty">
+        <div class="fifty">
+            <label for="name">Name :</label>
+            <input type="text" id="name" placeholder="Enter Your Name">
+        </div>
+        <div class="fifty">
+            <label for="roll-no.">Roll No. :</label>
+            <input type="number" id="roll-no." placeholder="Enter Roll No.">
+        </div>
+        <div class="fifty">
+            <label for="sub-1">Subject 1 :</label>
+            <input type="number" id="sub-1" placeholder="Enter Marks" max="100">
+        </div>
+        <div class="fifty">
+            <label for="sub-2">Subject 2 :</label>
+            <input type="number" id="sub-2" placeholder="Enter Marks" max="100">
+        </div>
+        <div class="fifty">
+            <label for="sub-3">Subject 3 :</label>
+            <input type="number" id="sub-3" placeholder="Enter Marks" max="100">
+        </div>
+        <div class="fifty">
+            <label for="sub-4">Subject 4 :</label>
+            <input type="number" id="sub-4" placeholder="Enter Marks" max="100">
+        </div>
+        <div class="fifty">
+            <label for="sub-5">Subject 5 :</label>
+            <input type="number" id="sub-5" placeholder="Enter Marks" max="100">
+        </div>
+        <div class="fifty">
+            <label for="sub-6">Subject 6 :</label>
+            <input type="number" id="sub-6" placeholder="Enter Marks" max="100">
+        </div>
+        <div class="tc">
+            <input type="button" id="CalculateResult" value="CalculateResult" onclick="SaveInfo()">
+        </div>
+    </form>
+
+
+    <table id="myTable">
+        <tr>
+            <th>Name</th>
+            <th>Roll No.</th>
+            <th>Subject 1</th>
+            <th>Subject 2</th>
+            <th>Subject 3</th>
+            <th>Subject 4</th>
+            <th>Subject 5</th>
+            <th>Subject 6</th>
+            <th>Percentage</th>
+
+    </table>
+
+    <script>
+        info = []
+        function SaveInfo() {
+
+            let Fname = document.getElementById("name").value;
+            let RollNo = document.getElementById("roll-no.").value;
+            let Sub1 = document.getElementById("sub-1").value;
+            let Sub2 = document.getElementById("sub-2").value;
+            let Sub3 = document.getElementById("sub-3").value;
+            let Sub4 = document.getElementById("sub-4").value;
+            let Sub5 = document.getElementById("sub-5").value;
+            let Sub6 = document.getElementById("sub-6").value;
+            let sum = parseInt(Sub1) + parseInt(Sub2) + parseInt(Sub3) + parseInt(Sub4) + parseInt(Sub5) + parseInt(Sub6)
+            let Percentage = (sum * 100) / 600
+
+            let h = {
+
+                fname : Fname,
+                rollNo : RollNo,
+                sub1 : Sub1,
+                sub2 : Sub2,
+                sub3 : Sub3,
+                sub4 : Sub4,
+                sub5 : Sub5,
+                sub6 : Sub6,
+                percentage : Percentage,         
+            }
+
+            info.push(h)
+
+
+            display();
+        }
+
+        function display() {
+            let d = info.map(function (value) {
+                return `<tr><td>${value.fname}</td>
+                    <td>${value.rollNo}</td>
+                    <td>${value.sub1}</td>
+                    <td>${value.sub2}</td>
+                    <td>${value.sub3}</td>
+                    <td>${value.sub4}</td>
+                    <td>${value.sub5}</td>
+                    <td>${value.sub6}</td>
+                    <td>${value.percentage}</td></tr>`
+            });
+            document.getElementById("myTable").innerHTML =
+            `<tr>
+            <th>Name</th>
+            <th>Roll No.</th>
+            <th>Subject 1</th>
+            <th>Subject 2</th>
+            <th>Subject 3</th>
+            <th>Subject 4</th>
+            <th>Subject 5</th>
+            <th>Subject 6</th>
+            <th>Percentage</th>` +  d.join(" ");
+
+        }
+    </script>
+</body>
+
+
+</html>
+
+
+<!-- // if (Percentage < 35) { // document.getElementById("Class").innerHTML="Fail" ; // } // else if (Percentage>= 35 &&
+    Percentage <= 40) { // document.getElementById("Class").innerHTML="Pass" ; // } // else if (Percentage>= 40 &&
+        Percentage <= 50) { // document.getElementById("Class").innerHTML="Third Class" ; // } // else if (Percentage>=
+            50 && Percentage <= 60) { // document.getElementById("Class").innerHTML="Second Class" ; // } // else if
+                (Percentage>= 60 && Percentage <= 70) { // document.getElementById("Class").innerHTML="First Class" ; //
+                    } // else if (Percentage> 70) {
+                    // document.getElementById("Class").innerHTML = "Distinction";
+                    // } -->
+
+
+<!-- <td id="Roll-No.">
+        <div class="g"></div>
+    </td>
+    <td id="Sub-1">
+        <div class="g"></div>
+    </td>
+    <td id="Sub-2">
+        <div class="g"></div>
+    </td>
+    <td id="Sub-3">
+        <div class="g"></div>
+    </td>
+    <td id="Sub-4">
+        <div class="g"></div>
+    </td>
+    <td id="Sub-5">
+        <div class="g"></div>
+    </td>
+    <td id="Sub-6">
+        <div class="g"></div>
+    </td>
+    <td id="Total">
+        <div class="g"></div>
+    </td>
+    <td id="Percentage">
+        <div class="g"></div>
+    </td>
+    <td id="Class">
+        <div class="g"></div>
+    </td> -->

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table>
+        <tbody id="display"></tbody>
+    </table>
+
+    <script>
+
+
+        fetch('https://jsonplaceholder.typicode.com/users').then(y => y.json()).then(y => {
+            display(y);
+        })
+
+        function display(y)
+        {
+            let a = y.map(function(value)
+            {
+                let text = ""
+                for (const key in value) {
+                    text+= `<td>${value[key]}</td>`
+                }
+
+                console.log(text);
+
+            })
+        }
+
+
+    </script>
+
+</body>
+
+</html>

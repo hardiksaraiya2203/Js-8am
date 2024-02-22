@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="searchItem" />
+
+    <table border="1">
+
+        <th>
+            Id
+
+            <select onchange="filterData(this)">
+
+                <option value="EQ">Equal</option>
+                <option value="NEQ">Not Equal</option>
+
+            </select>
+
+        </th>
+
+        <th>
+            Email
+
+            <select onchange="filterDataOnString(this)">
+
+                <option value="C">Contains</option>
+                <option value="E">Equal</option>
+                <option value="NE">Not Equal</option>
+                <option value="NC">Not Contains</option>
+                <option value="S">Start With</option>
+                <option value="EW">End With</option>
+
+            </select>
+
+        </th>
+
+        <th>
+            Address
+
+        </th>
+
+        <tbody id="display">
+
+        </tbody>
+
+    </table>
+
+    <script>
+        let array = [];
+
+        fetch("https://jsonplaceholder.typicode.com/users").then(function (value) {
+            return value.json()
+        }).then(function (value) {
+
+            array = value;
+            display(value);
+        })
+
+
+        function display(value) {
+
+            document.getElementById("display").innerHTML = value.map(function (value) {
+
+                return (`<tr><td>${value.id}</td><td>${value.email}</td><td>${value.address.geo.lat}</td></tr>`)
+            }).join(" ");
+
+        }
+
+        function filterData(a) {
+
+            const value = a.value;
+            const textvalue = document.getElementById("searchItem").value;
+
+            let j = array.filter(function (v) {
+
+                if (value == "EQ") {
+
+                    return v.id == textvalue;
+                }
+                else {
+                    return v.id != textvalue;
+                }
+
+            })
+
+            display(j);
+            console.log(value);
+
+        }
+
+
+        function filterDataOnString(a) {
+            const value = a.value;
+            const textvalue = document.getElementById("searchItem").value.trim().toLowerCase();
+
+
+
+            let j = array.filter(function (v) {
+
+                if (value == "E") {
+                    
+                    return v.email.toLowerCase() == textvalue;
+                }
+                else if (value == "NE") {
+
+                    return v.email.toLowerCase() != textvalue;
+                }
+                else if (value == "C") {
+                    return v.email.search(`/${textvalue}/ig`) >= 0;
+                }
+                else if (value == "NC") {
+                    return !v.email.toLowerCase().includes(textvalue);
+                }
+                else if (value == "S") {
+                    return v.email.toLowerCase().startsWith(textvalue);
+                }
+                else {
+                    return v.email.toLowerCase().endsWith(textvalue);
+                }
+
+            })
+
+            display(j);
+
+        }
+
+    </script>
+</body>
+
+</html>

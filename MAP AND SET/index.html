@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map and Set</title>
+</head>
+
+<body>
+    <script>
+        // let a = new Set()
+
+        // a.add(1)
+        // a.add(2)
+        // a.add(3)
+        // a.add(4)
+        // a.add(5)
+        // a.delete(5)
+        // let p = a.has(5)
+        // console.log(p)
+        // console.log(a)
+        // console.log(a.keys())
+        // console.log(a.size)
+        // a.clear()
+        // console.log(a)
+
+
+
+        // let b = new Map()
+        // b.set(1,1)
+        // b.set(2,2)
+        // b.set(3,3)
+        // b.set(4,4)
+        // b.set(5,5)
+        // console.log(b);
+        // b.delete(5)
+        // console.log(b);
+        // console.log(b.get(2))
+        // let q = b.has(2)
+        // console.log(q)
+        // console.log(b.size)
+        // b.clear()
+        // console.log(b)
+
+
+
+        let p1 = "this is javascript this is javascript"
+
+        let p = new Map()
+        let q = new Map()
+
+        let p2 = p1.split(" ");
+        console.log(p2);
+
+        for (let i = 0; i < p1.length; i++) {
+            if (p.has(p1[i]) == false) {
+                p.set(p1[i], 1);
+            }
+            else {
+                let c = p.get(p1[i])
+                c = c + 1;
+
+                p.set(p1[i], c)
+            }
+        }
+        console.log(p)
+        
+        
+        for (let j = 0; j < p2.length; j++) {
+            if (q.has(p2[j]) == false) {
+                q.set(p2[j], 1);
+            }
+            else {
+                let c = q.get(p2[j])
+                c = c + 1;
+                
+                q.set(p2[j], c)
+            }
+        }
+        console.log(q)
+    </script>
+</body>
+
+</html>

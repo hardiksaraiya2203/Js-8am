@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="image/FeviconLogo.svg">
+  <title>Log In Page</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://kit.fontawesome.com/52ca9e0df4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Product
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Specification</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Register.html">Registration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Log In</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <form action="" onsubmit="LoginInfo(event)">
+
+      <div class="container mb-3">
+
+        <div class="row justify-content-between align-items-center px-5 py-2">
+          <div class="col-lg-5 logInForm">
+            <form action="#" method="post">
+              <h1 class="display-6">Welcome</h1>
+              <div class="wrapper">
+                <label for="email"><b>Username</b></label>
+                <input type="email" placeholder="Enter Username" name="email" id="email" required>
+              </div>
+              <div class="wrapper">
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+              </div>
+              <div>
+                <label>
+                  <input type="checkbox" checked="checked" name="acceptTerms"> Accept Terms
+                </label>
+              </div>
+              <button class="btn btn-success" type="submit">Login</button>
+              <a class="register" href="Register.html">Register</a>
+            </form>
+          </div>
+
+          <div class="col-3 e-card playing">
+
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+
+
+            <div class="infotop">
+              <h2 class="secH">Trust Us</h2>
+              <p>24-hour support over many years of experience</p>
+              <a href="tel:09117878804">Contact Number: 09117878804</a><br>
+              <a href="mailto:Aadam33@koimail.com">Email: Aadam33@koimail.com</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <script>
+
+    function LoginInfo(e) {
+      e.preventDefault();
+
+      let p = document.querySelectorAll("input");
+      let obj = {}
+
+      p.forEach(function (v) {
+
+        if (v.type == "checkbox") {
+          obj[v.id] = v.checked;
+        }
+        else {
+          obj[v.id] = v.value;
+        }
+      });
+
+
+      // let obj = {
+      //   email : document.getElementById('email').value,
+      //   password : document.getElementById('password').value
+      // }
+
+      fetch('https://real-pear-fly-kilt.cyclic.app/accounts/authenticate',
+        {
+          method: "POST",
+          body: JSON.stringify(obj),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then(y => y.json())
+        .then(y => {
+          localStorage.setItem("token",JSON.stringify(y));
+          window.location.href = "account.html";
+          console.log(y);
+        })
+
+    }
+  </script>
+</body>
+
+</html>

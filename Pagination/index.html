@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginations</title>
+</head>
+
+<body>
+
+    <select id="managePageSize" onchange="managePageSize()">
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="250">250</option>
+    </select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>postId</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody id="display">
+
+        </tbody>
+    </table>
+    <div id="button"></div>
+
+
+    <script>
+
+        let array = []
+        
+        fetch('https://jsonplaceholder.typicode.com/comments').then(function (value) {
+            return value.json();
+        }).then(function (value) {
+            array = value;
+            pagination(1)
+            paginationNumber(value.length / document.getElementById('managePageSize').value)
+        });
+
+
+        function managePageSize() {
+            pagination(1);
+            paginationNumber(array.length / document.getElementById('managePageSize').value);
+            // console.log(pageSize);
+        }
+
+        function paginationNumber(len) {
+            document.getElementById('button').innerHTML = "";
+            for (let i = 1; i <= len; i++) {
+                document.getElementById('button').innerHTML += `<button onclick="pagination(${i})">${i}</button>`
+            }
+        }
+
+        function pagination(page) {
+            let start = (page - 1) * parseInt(document.getElementById('managePageSize').value);
+            let end = start + parseInt(document.getElementById('managePageSize').value);
+            // console.log(start,end);
+
+            let data = array.slice(start, end)
+            display(data)
+        }
+
+        function display(data) {
+            let p = data.map(function (value) {
+                return `<tr><td>${value.id}</td>
+                    <td>${value.postId}</td>
+                    <td>${value.name}</td>
+                    <td>${value.email}</td>
+                    <td>${value.body}</td></tr>`
+            });
+            document.getElementById('display').innerHTML = p.join(' ');
+        }
+        // display()
+
+    </script>
+</body>
+
+</html>

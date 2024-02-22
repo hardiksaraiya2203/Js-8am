@@ -1,0 +1,312 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+/* Color class Property */
+.green {
+  color: #16cb88;
+}
+.darkB {
+  color: #0e2b5c;
+}
+.darkGr {
+  color: rgb(109 127 157);
+}
+/* Color class Property End */
+
+.display-3 {
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+}
+
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+}
+
+.secH {
+  font-size: 35px !important;
+  line-height: 1.5;
+}
+
+
+/* NAVBAR CSS START */
+.navbar {
+  box-shadow: 0 5px 15px #00000029;
+  background-color: #6a38c2;
+  font-weight: 600;
+}
+.navbar-nav .nav-link.active,
+.navbar-nav .show > .nav-link {
+  color: #1e1e1e;
+  font-weight: 700;
+}
+
+.nav-link {
+  color: #ffffff;
+}
+/* NAVBAR CSS End */
+
+/* banner section start */
+.banner {
+  position: relative;
+}
+.bannerText {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrap {
+  border-radius: 5px;
+  box-shadow: 0 2px 10px #00000048;
+}
+
+.btn-primary {
+  background-color: #6a38c2;
+}
+.btn-primary:hover {
+  background-color: #7a4acd;
+}
+
+.Loginform label,
+.Loginform input {
+  width: 100%;
+}
+.Loginform input {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+.Loginform input:focus {
+  border: 1px solid black;
+}
+
+.mar {
+  margin: 10px 0;
+}
+
+textarea {
+  resize: none;
+}
+.Signupform input,
+.Signupform #Category,
+.Signupform textarea {
+  width: 100%;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.Signupform input:focus {
+  border: 1px solid black;
+}
+.num {
+  position: relative;
+}
+.num input {
+  padding-left: 70px;
+}
+#Category2 {
+  border: none;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  height: 28px;
+}
+#Category2:focus-visible {
+  outline: none;
+}
+
+.pas {
+  position: relative;
+}
+.fa-eye-slash {
+  position: absolute;
+  color: black;
+  top: 35px;
+  right: 10px;
+}
+.fa-eye {
+  position: absolute;
+  color: #6a38c2;
+  top: 35px;
+  right: 10px;
+  display: none;
+}
+
+.Recruiter {
+  display: none;
+}
+.inst div[class*="col-"]:nth-child(1) {
+  padding-right: 0;
+}
+.inst div[class*="col-"]:nth-child(2) {
+  padding: 0;
+}
+.inst div[class*="col-"]:nth-child(3) {
+  padding-left: 0;
+}
+
+.inst .mar {
+  position: relative;
+}
+.fa-file-lines {
+  position: absolute;
+}
+.fa-cloud-arrow-up {
+  position: absolute;
+}
+input,
+select,
+textarea {
+  height: 40px;
+}
+input.choose {
+  position: relative;
+}
+input.choose::before {
+  content: "\f15c";
+  font-weight: 900;
+  font-family: "Font Awesome 6 Free";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #6a38c2;
+  pointer-events: none;
+  color: white;
+}
+
+.Upload {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  overflow: hidden;
+}
+.Upload::before {
+  content: "\f0ee";
+  font-weight: 900;
+  font-family: "Font Awesome 6 Free";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #6a38c2;
+  pointer-events: none;
+  color: white;
+}
+
+.myJobs form[role="search"] .btn:focus {
+  border: none;
+  border-width: 0;
+  outline: none;
+}
+.myJobs form[role="search"] .btn:active{
+  border: none;
+  border-width: 0;
+  outline: none;
+}
+.myJobs form[role="search"] .btn{
+  position: absolute;
+  right: 22px;
+  top: 2px;
+}
+
+
+.myJobs form[role="search"] {
+  position: relative;
+}
+
+.MyjobCard .row{
+  box-shadow: 0 2px 10px #00000048;
+}
+.MyjobCard .stars i{
+  color: #b4b4b4;
+  margin-right: 4px;
+  font-size: 1.5rem;
+}
+
+.MyjobCard .textpart p{
+margin-top: 10px;
+margin-bottom: 0;
+}
+
+.modal-footer {
+border-top: 0;
+justify-content: space-between;
+}
+.modal-footer button{
+  width: 45%;
+}
+.modal-header {
+  border-bottom: 0;
+}
+#exampleModal input,#exampleModal label{
+width: 100%;
+height: 40px;
+
+}
+#exapleModal input{
+  padding: 6px 12px;
+border-radius: 5px;
+border: 1px solid grey;
+}
+
+#exampleModal input:focus {
+  border: 1px solid black;
+}
+
+.modal-content{
+  padding: 30px;
+}
+
+.miniCard .btn-blue{
+background-color: #5d5dff;
+color: #ffffff;
+}
+.miniCardBtn .btn{
+  vertical-align:middle;
+  width: 100%;
+  height: 50px;
+  transition: all 1s ease-in-out;
+}  
+.miniCardBtn .btn:hover{
+height: 180px;
+}
+
+.miniCardBtn a.btn{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.miniCardBtn{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+

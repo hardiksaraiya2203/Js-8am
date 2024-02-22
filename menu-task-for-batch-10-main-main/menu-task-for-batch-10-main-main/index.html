@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu</title>
+  <!-- font-awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/52ca9e0df4.js" crossorigin="anonymous"></script>
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/52ca9e0df4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <section class="menu">
+    <!-- title -->
+    <div class="title">
+      <h2>our menu</h2>
+      <div class="underline"></div>
+    </div>
+
+    <div class="btn-container" id="btnSearch">
+      <input type="text" id="searchItems">
+      <button type="button" class="filter-btn" data-id="all" onclick="searchItem()">Search</button>
+    </div>
+
+    <div class="btn-container" id="dataSort">
+      <button type="button" class="filter-btn" data-id="all" onclick="sortDataN('price','Desc')">High to Low</button>
+      <button type="button" class="filter-btn" data-id="all" onclick="sortDataN('price','Asc')">Low to High</button>
+      <button type="button" class="filter-btn" data-id="all" onclick="sortDataS('title','Asc')">A to Z</button>
+      <button type="button" class="filter-btn" data-id="all" onclick="sortDataS('title','Desc')">Z to A</button>
+    </div>
+
+
+    <!-- filter buttons -->
+
+    <div class="btn-container" id="btn">
+      <button type="button" class="filter-btn" data-id="all"></button>
+    </div>
+
+    <div class="btn-container" id="btn1">
+      <button type="button" class="filter-btn btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        data-id="all"  onclick="mapCartItem()"><i class="fa-solid fa-cart-shopping"><sub id="count"></sub></i></button>
+    </div>
+
+
+    <!-- modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cart Items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="totalAmount">
+            
+          </div>
+          <div id="amt"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="totalprice()">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- menu items -->
+    <div class="section-center" id="menu">
+      <!-- single item -->
+      <article class="menu-item">
+        <img src="./menu-item.jpeg" alt="menu item" class="photo" />
+        <div class="item-info">
+          <header>
+            <h4>buttermilk pancakes</h4>
+            <h4 class="price">$15</h4>
+          </header>
+          <p class="item-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Repudiandae, sint quam. Et reprehenderit fugiat nesciunt inventore
+            laboriosam excepturi! Quo, officia.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+  <!-- javascript -->
+  <script src="app.js"></script>
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <input type="text" id="check">
+    <button onclick="check()">Check</button> -->
+
+  <script>
+    // let a = 'ABC PQR XYX';
+
+    // let d = a.substring(0,1) + " " + a.substr(a.indexOf(' ')+1,1) + " " + a.substr(a.indexOf(' ',a.indexOf(' ')+1)+1,1);
+    // console.log(d);
+
+    // let d = [{
+    //   fName:"hardik",
+    //   lName:"Saraiya"
+    // },
+    // {
+    //   fName:"hem",
+    //   lName:"desai"
+    // }]
+
+    // let a = d.map(function(v,i)
+    // {
+    //   return d;
+    // })
+    // console.log(a)
+
+    // let arr = ["vadodara",'india',"pune",'indpore']
+
+    // let a = arr.filter(function(value,index)
+    // {
+    //   if(value.includes("o") == true)
+    //   {
+    //     return value;
+    //   }
+    // });
+    // console.log(a)
+
+
+    // let p = ['Baroda','pune','Anand','bangalore']
+    // p.sort() // does not compulsory require another var to see the output returns in same array 
+    // let p2 = p.sort().reverse()
+    // console.log(p)
+    // console.log(p2)
+
+
+    // let arr = [1, 111, 2, 2222, 333333, 44, 1111]
+
+    // let p1 = arr.sort(function (a, b) {
+    //   if (a < b) {
+    //     return -1; // dec
+    //   }
+    //   else {
+    //     return 1; // asc
+    //   }
+    // })
+    // console.log(p1)
+
+
+    let sor = [
+      {
+        id:1,
+        name:'hardik'
+      },
+      {
+        id:5,
+        name:'umesh'
+      },
+      {
+        id:3,
+        name:'Punamchand'
+      },
+      {
+        id:-1,
+        name:'Saraiya'
+      }
+    ]
+
+    sor.sort(function(a,b)
+    {
+      if(a.name > b.name)
+      {
+        return 1;
+      }
+      else
+      {
+        return -1;
+      }
+    })
+    console.log(sor)
+
+
+    let hardik = [1,1,1,2,2,3,4,2,2,3,4]
+
+    let reducer = hardik.reduce(function(pre,value)
+    {
+      if(pre.includes(value) == false)
+      {
+        pre.push(value)
+      }
+      return pre;
+    },[])
+    console.log(reducer)
+
+
+    let filterrrrr = [1,2,3,4,-1,-8,-6]
+
+    let f = filterrrrr.filter(function(value)
+    {
+      return value>10;
+    })
+
+    console.log(f);
+
+  </script>
+</body>
+
+</html>

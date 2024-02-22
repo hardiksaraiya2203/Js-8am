@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud using Map</title>
+</head>
+
+<body>
+    <input type="text" name="empId" id="empId">
+    <input type="text" name="empName" id="empName">
+    <button onclick="addItems()">Display</button>
+    <table>
+        <tbody id="display">
+
+        </tbody>
+    </table>
+
+    <script>
+        let a = new Map()
+
+        function addItems() {
+            let b = document.getElementById('empId').value;
+            let c = document.getElementById('empName').value;
+
+            a.set(b, c);
+
+            console.log(a)
+            display();
+        }
+
+        function display() {
+            for (let i = 0; i < a.size; i++) {
+                return `<tr><td>${i}</td></tr>`
+            }
+        }
+    </script>
+</body>
+
+</html>

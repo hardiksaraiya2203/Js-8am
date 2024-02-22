@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+</head>
+
+<body>
+    <form onsubmit="handleInput(event)">
+
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name">
+        <label for="avatar">Avatar</label>
+        <input type="text" name="avatar" id="avatar">
+        <label for="skills">Skills</label>
+        <input type="text" name="skills" id="skills">
+        <label for="duration">Duration</label>
+        <input type="text" name="duration" id="duration">
+        <label for="qualifications">Qualifications: </label>
+        <input type="text" name="qualifications" id="qualifications">
+
+        <button type="submit">Save</button>
+
+    </form>
+
+    <script>
+        const handleInput = (e) => {
+            e.preventDefault();
+            let obj = {}
+            document.querySelectorAll('input').forEach((element) => {
+                obj[element.name] = element.value;
+            })
+            obj.createdAt = "2024-02-20T19:43:11.023Z"
+            fetch('https://65d5733d3f1ab8c63436fba3.mockapi.io/v1/jobPortal', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj),
+            }).then(y => {
+                return y.json();
+            }).then(y => {
+                console.log(y);
+            });
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

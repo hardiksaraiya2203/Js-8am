@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INCOME TAX</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+        #CalculatedTax{
+            font-weight: 700;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="CalcTax()"
+        style="padding: 10px 20px;background-color: violet;border-radius: 5px;box-shadow:inset 0px 0px 3px 3px black;font-size: 25px;">CalculateTax</button>
+    <p id="CalculatedTax"></p>
+    <script>
+
+        let income = "3000000"
+        let tax = 0;
+
+        function CalcTax() {
+            if (income > 250000) {
+                let a = (income - 250000);
+                if (a > 500000) {
+                    let b = (a - 500000);
+                    let A = (500000 * 0.05);
+                    tax += A;
+
+                    if (b > 750000) {
+                        let c = (b - 750000);
+                        let B = (750000 * 0.10);
+                        tax += B;
+
+                        if (c > 1000000) {
+                            let d = (c - 1000000);
+                            let C = (1000000 * 0.15);
+                            tax += C;
+
+                            if (d > 1250000) {
+                                let e = (d - 1250000);
+                                let D = (1250000 * 0.20);
+                                tax += D;
+
+                                if (e > 1500000) {
+                                    let f = (e - 1500000);
+                                    let E = (1500000 * 0.20);
+                                    tax += E;
+                                }
+                                else {
+                                    let E = (e * 0.25);
+                                    tax += E;
+                                }
+                            }
+                            else {
+                                let D = (d * 0.20);
+                                tax += D;
+                            }
+                        }
+                        else {
+                            let C = (c * 0.15);
+                            tax += C;
+                        }
+                    }
+                    else {
+                        let B = (b * 0.10);
+                        tax += B;
+                    }
+                }
+                else {
+                    let A = (a * 0.05);
+                    tax += A;
+                }
+
+                document.getElementById("CalculatedTax").innerHTML = "Tax To Be Payed Is " + tax;
+            }
+            else {
+                document.getElementById("CalculatedTax").innerHTML = "No Tax To Be Payed";
+            }
+        }
+    </script>
+</body>
+
+</html>

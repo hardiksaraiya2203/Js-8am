@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="image/FeviconLogo.svg">
+  <title>Registration Page</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://kit.fontawesome.com/52ca9e0df4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Product
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Specification</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Register.html">Registration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Log In</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <form action="" onsubmit="saveInfo(event)">
+
+      <div class="container mb-3">
+
+        <div class="row justify-content-between align-items-center px-5 py-2">
+          <div class="col logInForm">
+            <form action="#" method="post">
+              <h1 class="display-6">Register</h1>
+              <div class="row ">
+                <div class="col-md-6 wrapper">
+                  <label for="firstName">First Name</label>
+                  <input type="text" placeholder="Enter Your First Name" name="firstName" id="firstName" required>
+                </div>
+                <div class="col-md-6 wrapper">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" placeholder="Enter Your Last Name" name="lastName" id="lastName" required>
+                </div>
+              </div>
+              <div class="row ">
+                <div class="col-md-6 wrapper">
+                  <label for="title">Title</label>
+                  <input type="text" placeholder="Enter Title Name" name="title" id="title" required>
+                </div>
+                <div class="col-md-6 wrapper">
+                  <label for="email">Email</label>
+                  <input type="email" placeholder="Enter Your Email" name="email" id="email" required>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-6 wrapper">
+                  <label for="password">Create your New Password</label>
+                  <input type="password" placeholder="Enter Password" name="password" id="password" required>
+                </div>
+                <div class="col-md-6 wrapper">
+                  <label for="confirmPassword">Confirm Password</label>
+                  <input type="password" placeholder="Confirm Password" name="confirmPassword" id="confirmPassword"
+                    required>
+                </div>
+              </div>
+              <div>
+                <label class="no">
+                  <input type="checkbox" checked="checked" name="acceptTerms" id="acceptTerms" required> I accept all
+                  terms and conditions.
+                </label>
+              </div>
+              <button class="btn btn-success" type="submit">Submit</button>
+              <a class="register" href="index.html">... Or Log IN</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <script>
+
+    const saveInfo = (e) => {
+      e.preventDefault();
+      let obj = {
+      }
+      let p = document.querySelectorAll('input');
+      p.forEach(function (v) {
+        if (v.type == "checkbox") {
+          obj[v.id] = v.checked;
+        }
+        else {
+          obj[v.id] = v.value;
+        }
+      })
+      console.log(obj);
+      fetch("https://real-pear-fly-kilt.cyclic.app/accounts/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(obj)
+        }).then(y => y.json())
+        .then(y => {
+          console.log(y);
+        })
+    }
+
+
+  </script>
+</body>
+
+</html>
