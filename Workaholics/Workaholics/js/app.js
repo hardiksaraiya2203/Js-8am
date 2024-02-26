@@ -32,16 +32,12 @@ const handleInput = (e) => {
     if (document.getElementById('Category').value == "Recruiter") {
 
         document.querySelectorAll('input:not(.Applicant input)').forEach((element) => {
-            // if (element.classList.contains('recruiter') == false) {
             obj[element.name] = element.value;
-            // }
         });
     }
     else{
         document.querySelectorAll('input:not(.Recruiter input)').forEach((element) => {
-            // if (element.classList.contains('recruiter') == false) {
             obj[element.name] = element.value;
-            // }
         });
 
     }

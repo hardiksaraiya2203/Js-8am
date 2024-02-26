@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form object</title>
+</head>
+
+<body>
+    <form id="form1">
+        <label for="firstName">firstName: </label>
+        <input type="text" name="firstName" id="firstName">
+
+        <label for="lastName">lastName: </label>
+        <input type="text" name="lastName" id="lastName">
+
+        <label for="email">email: </label>
+        <input type="email" name="email" id="email">
+
+        <label for="password">password: </label>
+        <input type="password" name="password" id="password" autocomplete="on">
+
+        <label for="contactNo">contactNo: </label>
+        <input type="tel" name="contactNo" id="contactNo">
+
+    </form>
+    <button id="btn" type="submit" onclick="display(event)">Show Data</button>
+
+    <ul id="displayData">
+
+    </ul>
+
+    <script>
+
+        // let arr = []
+        function display(e) {
+            e.preventDefault()
+            let formData = document.forms['form1'];
+
+            let obj = {};
+
+            for (i = 0; i < formData.length; i++) {
+                obj[formData.elements[i].name] = formData.elements[i].value;
+            }
+            console.log(obj);
+            // arr.push(obj);
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hrml DOM</title>
+</head>
+
+<body>
+
+    <script>
+        // getElementbyId is method and innerHtml is the property 
+
+        // finding html elements
+        // id,tagName,className
+        // changing html elements
+        // element.innerHtml,element.attribute = value ,element.style,element.setAttribute(attribuye,value)
+        // adding and deleting elements
+        // document.createElement,document.removeChild,document.appendChild,document.replaceChild(new,child),document.write
+
+        // finding using id,classname,tagname,queryselectorAll,
+
+        // use document.forms('form id/class') to access form and use elements[index] to access form elements value
+        // form head images links script title document body doc element anchor (present in elements last)
+
+        // Dom html
+        // get element by id
+        // changing value of attribute .src = "value"
+
+        // html forms
+        // return false use to stop running function futhur if the condition is not true
+
+        // html validation
+        //required disable max min type pattern maxlength size multiple for files pattern placeholder step autofocus inserting data list in input using id of DL in list of input autocomplete on gives you previous suggession formvalidate=formnovalidate formtarget
+        // giving id to form and same if to form attribute says that it belongs to same form whether written outside the form
+
+        // addEventListener removeEventListener event bubbling (by default false atle jene click kre ae pella thai)event capturing(true karo to pella parent thai pachi child)
+
+
+        // NODES
+        // parentNode,childNode,firstChild,lastChild,nextSibling,previousSibling
+
+        // firstChild.nodeValue= childNode[0].nodeValue = innerHtml
+        // element attribute text document doctype comment node
+
+        // adding and removing nodes
+        //         <div id="div1">
+        // <p id="p1">This is a paragraph.</p>
+        // <p id="p2">This is another paragraph.</p>
+        // </div>
+
+        // <script>
+        // const para = document.createElement("p");,remove for older version use removeChild 
+        // const node = document.createTextNode("This is new.");
+        // para.appendChild(node);
+        // const element = document.getElementById("div1");
+        // element.appendChild(para);,insertbefore(para,kona pella),replaceChild(kobe,kona thi)
+
+        // html collection  collection of html elements live
+        // ena pr for loop aj chale 
+
+        // node list  can be accssed by index html cannot collection of nodes static
+        // queryselectorAll
+        // length find thai bannev ni
+
+        // .attributes gives all the attributes of tag .focus .blur childelementcount/children.length
+
+    // kaam no example based on task
+    // <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+        // Name: <input type="text" name="fname">
+        // <input type="submit" value="Submit">
+        // </form>
+
+    // function validateForm() {
+    // let x = document.forms["myForm"]["fname"].value;
+    // if (x == "") {
+    // alert("Name must be filled out");
+    // return false;
+
+    // }
+    // }
+
+    // for number validation
+    // function myFunction() {
+    // // Get the value of the input field with id="numb"
+    // let x = document.getElementById("numb").value;
+    // // If x is Not a Number or less than one or greater than 10
+    // let text;
+    // if (isNaN(x) || x < 1 || x> 10) {
+        // text = "Input not valid";
+        // } else {
+        // text = "Input OK";
+        // }
+        // document.getElementById("demo").innerHTML = text;
+        // }
+        </script>
+
+</body>
+
+</html>
