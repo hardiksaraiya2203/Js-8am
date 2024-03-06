@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course</title>
+</head>
+
+<body>
+
+    <dl id="fullCourse"><input type="checkbox">FullStack
+        <dt><input type="checkbox" class="subCourse">FrontEnd
+        <dd><input type="checkbox" class="language1">Html</dd>
+        <dd><input type="checkbox" class="language1">CSS</dd>
+        <dd><input type="checkbox" class="language1">JS</dd>
+        <dd><input type="checkbox" class="language1">React.js</dd>
+        </dt>
+
+        <dt><input type="checkbox" class="subCourse">Backend
+        <dd><input type="checkbox" class="language2">Python</dd>
+        <dd><input type="checkbox" class="language2">Node JS</dd>
+        <dd><input type="checkbox" class="language2">Java</dd>
+        </dt>
+    </dl>
+
+    <script type="module">
+        import {handleCheckbox} from "./course.js"
+
+        handleCheckbox();
+    </script>
+
+</body>
+
+</html>

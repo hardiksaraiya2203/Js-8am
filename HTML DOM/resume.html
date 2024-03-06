@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+</head>
+
+<body>
+  <div id="basicInformation">
+    <label for="firstName">firstName</label>
+    <input type="text" name="firstName" id="firstName">
+
+    <label for="lastName">lastName</label>
+    <input type="text" name="lastName" id="lastName">
+
+    <label for="email">email</label>
+    <input type="text" name="email" id="email">
+  </div>
+  <br>
+  <div id="educations">
+    <div id="education">
+
+      <label>Education Level</label>
+      <input type="text" name="EducationLevel">
+
+      <label>Education Start</label>
+      <input type="text" name="EducationStart">
+    </div>
+  </div>
+  <button onclick="addMoreEducation()">Add More</button>
+  <br>
+  <br>
+
+  <div id="certifications">
+    <div id="certification">
+
+      <label>Certification Name</label>
+      <input type="text" name="CertificationName">
+
+      <label>Description</label>
+      <input type="text" name="Description">
+    </div>
+  </div>
+  <button onclick="addMoreCertification()">Add More</button>
+
+  <br>
+  <br>
+
+  <div id="experiences">
+    <div id="experience">
+
+      <label>Position</label>
+      <input type="text" name="Position">
+
+      <label>Company</label>
+      <input type="text" name="Company">
+    </div>
+  </div>
+  <button onclick="addMoreExperience()">Add More</button>
+  <br>
+  <br>
+  <button type="button" onclick="saveAll()">Save All</button>
+
+  <script>
+
+    const addMoreEducation = () => {
+      let edu = document.getElementById('education').cloneNode(true);
+
+      let inp = edu.getElementsByTagName('input');
+
+      let Btn = document.createElement('button');
+      Btn.innerHTML = "remove";
+
+
+      Btn.onclick = (e) => {
+        removeElement(e);
+      }
+
+      for (index = 0; index < inp.length; index++) {
+        inp[index].value = " "
+      }
+      document.getElementById('educations').appendChild(edu);
+      edu.appendChild(Btn);
+
+
+      const removeElement = (p) => {
+        p.target.parentElement.remove();
+      }
+    }
+
+    const addMoreCertification = () => {
+      let edu = document.getElementById('certification').cloneNode(true);
+
+      let inp = edu.getElementsByTagName('input');
+
+      let Btn = document.createElement('button');
+      Btn.innerHTML = "remove";
+
+
+      Btn.onclick = (e) => {
+        removeElement(e);
+      }
+
+      for (index = 0; index < inp.length; index++) {
+        inp[index].value = " "
+      }
+      document.getElementById('certifications').appendChild(edu);
+      edu.appendChild(Btn);
+
+
+      const removeElement = (p) => {
+        p.target.parentElement.remove();
+      }
+    }
+
+    const addMoreExperience = () => {
+      let edu = document.getElementById('experience').cloneNode(true);
+
+      let inp = edu.getElementsByTagName('input');
+
+      let Btn = document.createElement('button');
+      Btn.innerHTML = "remove";
+
+
+      Btn.onclick = (e) => {
+        removeElement(e);
+      }
+
+      for (index = 0; index < inp.length; index++) {
+        inp[index].value = " "
+      }
+      document.getElementById('experiences').appendChild(edu);
+      edu.appendChild(Btn);
+
+
+      const removeElement = (p) => {
+        p.target.parentElement.remove();
+      }
+    }
+
+    const saveAll = () => {
+      let op = {}
+
+      let p = document.querySelectorAll('#basicInformation input');
+      let p1 = document.querySelectorAll('#educations #education');
+      let p2 = document.querySelectorAll('#certifications #certification');
+      let p3 = document.querySelectorAll('#experiences #experience');
+
+      op["educations"] = [];
+      op["certifications"] = [];
+      op["experiences"] = [];
+
+
+      p1.forEach((v, index) => {
+
+        let elements = v.querySelectorAll('input');
+        myjson = convertToJson(elements);
+
+        op["educations"].push(myjson);
+
+      });
+      p2.forEach((v, index) => {
+
+        let elements = v.querySelectorAll('input');
+        myjson = convertToJson(elements);
+
+        op["certifications"].push(myjson);
+
+      });
+      p3.forEach((v, index) => {
+
+        let elements = v.querySelectorAll('input');
+        myjson = convertToJson(elements);
+
+        op["experiences"].push(myjson);
+
+      });
+      console.log(op)
+
+      op["basicInformation"] = convertToJson(p);
+    }
+
+    const convertToJson = (p) => {
+
+      let obj = {}
+
+      p.forEach((v, index) => {
+        obj[v.name] = v.value
+      });
+      return obj;
+      console.log(obj);
+    }
+  </script>
+</body>
+
+</html>

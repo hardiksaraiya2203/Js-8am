@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Example</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="num">
+        <button type="button" value="save" id="btn">Save</button>
+    </form>
+    <table>
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td class="number">
+                4
+            </td>
+            <td>
+                <button class="incBtn">+</button>
+                <!-- <button id="incBtn">+</button> -->
+            </td>
+            <td>
+                <button class="decBtn">-</button>
+                <!-- <button id="decBtn">-</button> -->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td class="number">
+                5
+            </td>
+            <td>
+                <button class="incBtn">+</button>
+                <!-- <button id="incBtn">+</button> -->
+            </td>
+            <td>
+                <button class="decBtn">-</button>
+                <!-- <button id="decBtn">-</button> -->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td class="number">
+                6
+            </td>
+            <td>
+                <button class="incBtn">+</button>
+            </td>
+            <td>
+                <button class="decBtn">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td class="number">
+                7
+            </td>
+            <td>
+                <button class="incBtn">+</button>
+            </td>
+            <td>
+                <button class="decBtn">-</button>
+            </td>
+        </tr>
+    </table>
+
+
+
+    <script type="module">
+
+        import { handleButton, handleIncrement, handleDecrement } from "./domOperations.js";
+
+        document.getElementById('btn').addEventListener("click", handleButton);
+
+        const incBtn = document.querySelectorAll('.incBtn');
+        incBtn.forEach(function (btn) {
+            btn.addEventListener('click', handleIncrement)
+        });
+
+        const decBtn = document.querySelectorAll('.decBtn');
+        decBtn.forEach(function (btn) {
+            btn.addEventListener('click', handleDecrement)
+        });
+    </script>
+</body>
+
+</html>

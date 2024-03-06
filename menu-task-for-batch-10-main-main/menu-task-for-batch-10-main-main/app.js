@@ -106,14 +106,12 @@ display(menu);
 
 
 // DISPLAY BUTTON 
-let categories = menu.reduce(function(pre,value)
-{
-  if(pre.includes(value.category) == false)
-  {
+let categories = menu.reduce(function (pre, value) {
+  if (pre.includes(value.category) == false) {
     pre.push(value.category);
   }
   return pre;
-},[]).map(function (value) {
+}, []).map(function (value) {
   return ` <button type="button" class="filter-btn" data-id="all" onclick="filterData('${value}')">${value}</button>`
 })
 document.getElementById('btn').innerHTML = categories.join(' ') + `<button type="button" class="filter-btn" data-id="all" onclick="displayAll()">All</button>`
@@ -130,7 +128,7 @@ function searchItem() {
 
 function filterData(clickCategory) {
   let fD = menu.filter(function (value, index) {
-    return value.category == clickCategory // || clickCategory == "All"
+    return value.category == clickCategory
   });
 
   display(fD);
@@ -139,32 +137,6 @@ function filterData(clickCategory) {
 function displayAll() {
   display(menu);
 }
-
-// NORMAL SORTING
-// function AtoZ() {
-//   menu.sort(function (a, b) {
-//     if (a.title > b.title){
-//       return 1;
-//     }
-//     else{
-//       return -1;
-//     }
-//   })
-//   display(menu)
-// }
-// function ZtoA() {
-//   menu.sort(function (a, b) {
-//     if (a.title > b.title){
-//       return -1;
-//     }
-//     else{
-//       return 1;
-//     }
-//   })
-
-//   display(menu)
-// }
-
 
 
 function sortDataS(props, order) {
@@ -205,28 +177,23 @@ function sortDataN(props, order) {
 }
 
 let cart = []
-function AddtoCart(index)
-{
-  let selectedProduct = menu[index]
-  let obj = cart.find(function(value)
-  {
-    return value.items.selectedProduct = selectedProduct.id
-  })
-  if(!obj){
 
-    cart.push({items:selectedProduct,quantity:1})
+function AddtoCart(index) {
+  let selectedProduct = menu[index];
+  let obj = cart.find(function (value) {
+    return value.items.id == selectedProduct.id
+  });
+  if (!obj) {
+
+    cart.push({ items: selectedProduct, quantity: 1 })
   }
-  else
-  {
-    obj.quantity = quantity + 1;
-  }
+  console.log(cart);
 
   document.getElementById('count').innerHTML = cart.length;
 }
 
 function mapCartItem() {
-  // console.log(cart)
-  let mapCartItem = cart.map(function (value,index) {
+  let mapCartItem = cart.map(function (value, index) {
     return `<div id="productImage">
     <article class="menu-item">
       <img src="${value.items.img}" alt="menu item" class="photo" />
@@ -249,17 +216,15 @@ function mapCartItem() {
   document.getElementById('totalAmount').innerHTML = mapCartItem.join(" ");
 }
 
-function incQty(index)
-{
-  cart[index].quantity = cart[index].quantity+1;
+function incQty(index) {
+  cart[index].quantity = cart[index].quantity + 1;
 
   mapCartItem();
 }
-function decQty(index)
-{
-  if(cart[index].quantity=0){
+function decQty(index) {
+  if (cart[index].quantity = 0) {
 
-    cart[index].quantity = cart[index].quantity-1;
+    cart[index].quantity = cart[index].quantity - 1;
   }
 
   mapCartItem();

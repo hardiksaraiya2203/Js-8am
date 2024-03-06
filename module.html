@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules</title>
+</head>
+<body>
+    <script type="module">
+
+        // import d from "./module.js"
+        // console.log(d);
+
+        // import d,{display} from "./module.js"
+        // console.log(d);
+        // display();
+
+        import * as d from "./module.js"
+
+        console.log(d.default);
+        d.display();
+        console.log(d.variable);
+
+
+    </script>
+</body>
+</html>

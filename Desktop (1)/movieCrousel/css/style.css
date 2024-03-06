@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a;
+  padding: 0;
+}
+
+.back {
+  background-color: white;
+  height: 100%;
+  border-radius: 10px;
+}
+img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+
+
+.card-body {
+  padding: 20px;
+}
+
+#data {
+  padding: 20px;
+}
+
+.row {
+  row-gap: 30px;
+}
+
+.flexx {
+  position: relative;
+  margin: 20px auto;
+}
+
+.flexx input {
+  padding: 10px 20px;
+  width: 100%;
+  margin: 10px 0;
+  outline: none;
+  border: none;
+}
+
+.navbar-brand {
+  width: 4rem;
+  margin-right: 8rem;
+}
+
+#BannerCarousel img {
+  height: 100vh;
+  object-fit: cover;
+  object-position: top;
+}
+.Banner{
+  position: relative;
+}
+.Banner::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left:0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:linear-gradient(rgb(0 7 0 / 90%), rgba(255, 255, 255, 0.11)22%)
+}
+header {
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+}
+.bg-dark {
+  background-color: transparent !important;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+.nav-link {
+  color: #ffffff;
+}
+.navbar-expand-lg .form-control,
+.flexx input {
+  border-radius: 50px;
+  background-color: #2c2c2c;
+  border: none;
+  color: #ffffff;
+}
+.navbar-expand-lg .form-control::placeholder {
+  color: #9a9a9a;
+}
+.navbar form .btn i,
+.flexx .btn i {
+  color: #ffffff;
+}
+.navbar form {
+  position: relative;
+}
+.navbar form .btn {
+  position: absolute;
+  right: 14px;
+  top: 0;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: #2c2c2c;
+}
+.flexx .btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  padding: 5px;
+  border-radius: 50px;
+  transform: translateY(-50%);
+  background-color: #2c2c2c;
+}
+
+.MovieCardSection {
+  margin-bottom: 500px;
+}
+.wrapImage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 3px solid #2c2c2c;
+  transition: all 0.5s ease-in-out;
+}
+.wrapImage img {
+  padding: 3px;
+  aspect-ratio: 16/9;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.wrapImage .Overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: end;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  padding: 10px;
+  background-color: #0000008c;
+  transition: all 0.5s ease-in-out;
+}
+
+.wrapImage .Overlay p{
+    margin-bottom: 0;
+}
+.wrapImage .Overlay p span{
+    color: #ff753a;
+}
+.movieCard {
+  color: #ffffff;
+}
+ .wrapImage:hover .Overlay{
+    opacity: 1;
+}
+ .wrapImage:hover{
+    border-color: #ff753a;
+    box-shadow: 0 0 15px -2px #ff753a;
+}
+.movieCard h5 {
+  margin-top: 10px;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 1180px) {
+  /* ipad landscape view */
+}
+
+@media screen and (max-width: 991px) {
+  /* ipad portrait view */
+  .navbar form {
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* Mobile landscape view */
+}
+
+@media screen and (max-width: 575.98px) {
+  /* Mobile portrait view */
+  .wrapImage .Overlay{
+    font-size: 14px;
+  }
+  .wrapImage .Overlay p{
+    max-height: 2.8rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    -webkit-line-clamp: 2;
+    position: relative;
+  }
+}
+
+

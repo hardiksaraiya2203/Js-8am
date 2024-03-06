@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <div id="display">
+        <input type="text" id="name">
+        <input type="text" id="email">
+    </div>
+    <!-- this space is counted as text node-->
+    <!-- this is counted as element node--> <!-- this space is counted as text node-->
+    <!-- so output is 3 -->
+
+
+
+    <!-- <div class="display">hardik</div>
+    <div class="display">hardik</div>
+    <div class="display">hardik</div>
+    <div class="display">hardik</div>
+    <p class="display" name="para">para</p> -->
+
+
+
+    <script>
+        // let a = document.getElementById('display').innerHTML;
+        // console.log(a)
+        // let a = document.querySelector('#display');
+        // console.log(a.innerHTML)
+
+        // let a = document.getElementsByClassName('display');
+        // console.log(a)
+        // for (i = 0; i < a.length; i++) {
+        //     a[i].style.color = "red";
+        // }
+
+        // let a = document.getElementsByTagName('p');
+        // console.log(a)
+        // for (i = 0; i < a.length; i++) {
+        //     a[i].style.color = "red";
+        // }
+
+        // let a = document.getElementsByName('para');
+        // console.log(a)
+        // for (i = 0; i < a.length; i++) {
+        //     a[i].style.color = "red";
+        // }
+
+        let a = document.getElementById('display').childNodes; // childNodes[0] also has space count 
+        console.log(a);
+
+        let b = document.getElementById('display').childElementCount; // gives child count without space
+        console.log(b);
+
+        let c = document.getElementById('display').children; // gives only child elements without space
+        console.log(c);
+
+        let d = document.getElementById('name').parentElement; // 
+        console.log(d);
+
+        let e = document.getElementById('email').parentNode; // 
+        console.log(e);
+
+        // firstChild would give space so use firstElementchild
+        // lastChild would give space so use lastElementchild
+        // previousSibling and nextSibling 
+
+    </script>
+</body>
+
+</html>
