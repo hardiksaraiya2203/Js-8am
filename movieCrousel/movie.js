@@ -481,10 +481,7 @@ const myApiData = [
 
 function display(x) {
   let mynewarray = x.map(function (value, index) {
-    const indicators = value.Images.map(function (
-      vIndicators,
-      indexIndicators
-    ) {
+    const indicators = value.Images.map(function (vIndicators,indexIndicators) {
       return `<button type="button" data-bs-target="#demo${index}" data-bs-slide-to="${indexIndicators}" class="active"></button>`;
     });
 

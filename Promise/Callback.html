@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        .back {
+            background-color: white;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        #data {
+            padding: 20px;
+        }
+
+        .row {
+            row-gap: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- CARD  -->
+    <section class="section3">
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex flex-wrap align-items-start justify-content-start" id="products">
+                    <div class="col-sm-6 col-md-4 p-2">
+                        <div class="product-card">
+                            <div class="image">
+                                <img w-100 src="https://images.pexels.com/photos/7974/pexels-photo.jpg"
+                                    alt="Product Image" />
+                            </div>
+                            <h2>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h2>
+                            <p class="price">Price: $109.95</p>
+                            <p class="description">
+                                <small>
+                                    Your perfect pack for everyday use and walks in the forest.
+                                    Stash your laptop (up to 15 inches) in the padded sleeve,
+                                    your everyday</small>
+                            </p>
+                            <p class="category fw-bold mb-0">Category: men's clothing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel  -->
+    <section>
+        <div class="container">
+            <div id="display" class="row"></div>
+        </div>
+    </section>
+
+    <script>
+        const fetchData = (url, display) => {
+            fetch(url)
+                .then((y) => y.json())
+                .then((y) => {
+                    display(y);
+                    console.log(y);
+                });
+        };
+
+        const displayCard = (data) => {
+            let p = data.map((value) => {
+                return `<div class=" col-sm-6 col-md-4 p-2">
+            <div class="product-card">
+                <div class="image">
+                    <img w-100 src="${value.image}" alt="Product Image">
+                </div>
+                <h2>${value.title}</h2>
+                <p class="price">Price: $${value.price}</p>
+                <p class="description"><small>${value.description}</small></p>
+            </div>
+        </div>`;
+            });
+
+            document.getElementById("products").innerHTML = p.join(" ");
+        };
+
+        const displayCarousel = (data) => {
+            let Items = data.map(function (value, index) {
+                const indicators = value.images.map(function (vIndicators, indexIndicators) {
+                    return `<button type="button" data-bs-target="#demo${index}" data-bs-slide-to="${indexIndicators}" class="active"></button>`;
+                });
+
+                const images = value.images.map(function (vimage, indexImage) {
+                    return ` <div class="carousel-item ${indexImage == 0 ? "active" : ""}">
+                            <img src="${vimage}" alt="Los Angeles" class="d-block" style="width:100%"></div>`;
+                });
+
+                const display = `
+    <div class="col-lg-4 col-md-6 " id="wrap">
+    <div class="back">
+  <div id="demo${index}" class="carousel slide" data-bs-ride="carousel">
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    ${indicators.join(" ")}
+    </div>
+    
+    <!-- The slideshow/carousel -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+    ${images.join(" ")}
+   
+  </div>
+
+  <!-- Left and right controls/icons -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo${index}" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo${index}" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div></div><div id="data"> 
+<p>Title : ${value.title}</p>
+<p>Director : ${value.price}</p>
+<p>Writer : ${value.description}</p>
+</div></div></div>`;
+
+                return display;
+            });
+
+            document.getElementById("display").innerHTML = Items.join(" ");
+        };
+
+        fetchData("https://fakestoreapi.com/products", displayCard);
+        fetchData("https://api.escuelajs.co/api/v1/products", displayCarousel);
+    </script>
+</body>
+
+</html>
