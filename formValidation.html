@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        p {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>JavaScript Validation</h2>
+
+        firstName: <input type="text" name="firstName" id="firstName" pattern="[a-zA-Z]{2,15}">
+        <p id="demo1"></p>
+        lastName: <input type="text" name="lastName" id="lastName" required>
+        <p id="demo2"></p>
+        age: <input type="number" name="age" id="age" min="0" max="150">
+        <p id="demo3"></p>
+        email: <input type="email" name="email" id="email">
+        <p id="demo4"></p>
+        password: <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        <p id="demo5"></p>
+        confirmPassword: <input type="password" name="confirmPassword" id="confirmPassword"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        <p id="demo6"></p>
+        Pincode: <input id="id1" type="number" maxLength="6" id="Pincode">
+        <p id="demo7"></p>
+        <button onclick="myFunction()">OK</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const age = document.getElementById('age');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            const Pincode = document.getElementById("Pincode");
+
+            let text = [];
+
+            if (firstName.validity.patternMismatch) {
+                text.push("Pattern in not matched.it should contain between a-z,A-Z,and length should be min 6 and max 15 char");
+                document.getElementById('demo1').innerHTML = text[0];
+            }
+            if (lastName.validity.valueMissing) {
+                text.push("Please fill up the details");
+                document.getElementById('demo2').innerHTML = text[1];
+            }
+            if (!age.checkValidity()) {
+                text.push("age should be between 0-150");
+                document.getElementById('demo3').innerHTML = text[2];
+            }
+            if (email.validity.typeMismatch) {
+                text.push("email does not match");
+                document.getElementById('demo4').innerHTML = text[3];
+            }
+            if (password.validity.patternMismatch) {
+                text.push("password error");
+                document.getElementById('demo5').innerHTML = text[4];
+            }
+            if (confirmPassword.validity.patternMismatch) {
+                text.push("password error ");
+                document.getElementById('demo6').innerHTML = text[5];
+            }
+            if (!Pincode.validity.tooLong) {
+                text.push("characters exceeds ");
+                document.getElementById('demo6').innerHTML = text[6];
+            }
+
+            console.log(text)
+        } 
+    </script>
+
+</body>
+
+</html>

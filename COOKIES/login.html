@@ -25,8 +25,8 @@
             let e = document.getElementById('email').value;
             let p = document.getElementById('password').value;
 
-            // alert(document.cookie)
-            document.cookie =  `${e};${p}`;
+            document.cookie =  `${e}:${p}`;
+            // document.cookie =  document.getElementById('email').value;
 
             window.location.href = "welcome.html";
         }

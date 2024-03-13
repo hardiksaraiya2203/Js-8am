@@ -105,12 +105,16 @@
 
         const displayCarousel = (data) => {
             let Items = data.map(function (value, index) {
-                const indicators = value.images.map(function (vIndicators, indexIndicators) {
+                const indicators = value.images.map(function (
+                    vIndicators,
+                    indexIndicators
+                ) {
                     return `<button type="button" data-bs-target="#demo${index}" data-bs-slide-to="${indexIndicators}" class="active"></button>`;
                 });
 
                 const images = value.images.map(function (vimage, indexImage) {
-                    return ` <div class="carousel-item ${indexImage == 0 ? "active" : ""}">
+                    return ` <div class="carousel-item ${indexImage == 0 ? "active" : ""
+                        }">
                             <img src="${vimage}" alt="Los Angeles" class="d-block" style="width:100%"></div>`;
                 });
 

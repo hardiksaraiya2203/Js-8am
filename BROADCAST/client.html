@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client BroadCast</title>
+</head>
+<body>
+    <!-- <input type="text" id=""> -->
+    <div id="display" ></div>
+    <button onclick="display()">save</button>
+
+    <script>
+        let a = new BroadcastChannel('BroadCast')
+
+        const display = () =>
+        {
+            a.postMessage('hello');
+        }
+        a.onmessage = (e) =>
+        {
+            console.log(e)
+            document.getElementById('dis').innerHTML = e.data;
+        }
+    </script>
+    
+</body>
+</html>
