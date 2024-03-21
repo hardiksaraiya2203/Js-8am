@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="image/FeviconLogo.svg">
+    <title>Workaholics</title>
+    <script src="https://kit.fontawesome.com/52ca9e0df4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="signup.html"> ADD JOBS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="myjobs.html">MY JOBS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">EMPLOYEES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">PROFILE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">LOGOUT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="Add">
+        <div class="container-fluid">
+            <h1 class="secH text-center py-3">Add Jobs</h1>
+            <form class="d-flex flex-column flex-wrap " action="#">
+                <input type="text" placeholder="title" id="title">
+                <input type="text" placeholder="skills" id="skillsets">
+                <select name="jobType" id="jobType">
+                    <option value="Full-Time">Full Time</option>
+                    <option value="Part-Time">Part Time</option>
+                    <option value="Work-From-Home">Work From Home</option>
+                </select>
+                <select name="duration" id="duration">
+                    <option value="1">1 Month</option>
+                    <option value="2">2 Month</option>
+                    <option value="3">3 Month</option>
+                    <option value="4">4 Month</option>
+                    <option value="5">5 Month</option>
+                    <option value="6">6 Month</option>
+                </select>
+                <input type="number" placeholder="salary" id="salary">
+                <input type="date" placeholder="dateOfPosting" id="dateOfPosting">
+                <input type="date" placeholder="deadline" id="deadline">
+                <input type="number" placeholder="max100" id="maxApplicants">
+                <input type="number" placeholder="position" id="maxPositions">
+
+                <input type="text" name="rating" id="rating" placeholder="rating">
+                <button class="btn btn-primary" type="submit" onclick="addJobs(event)">Create job</button>
+            </form>
+        </div>
+    </section>
+
+
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+
+    <script>
+        const addJobs = (e) => {
+            e.preventDefault();
+            let obj = {
+                title: document.getElementById('title').value,
+                maxApplicants: document.getElementById('maxApplicants').value,
+                maxPositions: document.getElementById('maxPositions').value,
+                dateOfPosting: document.getElementById('dateOfPosting').value,
+                deadline: document.getElementById('deadline').value,
+                skillsets: document.getElementById('skillsets').value,
+                jobType: document.getElementById('jobType').value,
+                duration: document.getElementById('duration').value,
+                salary: document.getElementById('salary').value,
+                rating: document.getElementById('rating').value,
+            }
+            console.log(obj)
+
+            let t =  JSON.parse(localStorage.getItem('token')).token
+
+            fetch('http://localhost:4444/api/jobs', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${t}`
+                },
+                body: JSON.stringify(obj)
+            }).then(y => y.json()).then(y => {
+                // console.log(y);
+                alert('aaa');
+               
+            })
+        }
+    </script>
+</body>
+
+</html>

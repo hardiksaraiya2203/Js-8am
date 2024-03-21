@@ -310,3 +310,14 @@ height: 180px;
   height: 100%;
 }
 
+.Add input,.Add select{
+  padding: 10px 15px;
+  margin: 10px 0px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+.Add .btn-primary{
+  width: 20%;
+  margin: auto;
+}

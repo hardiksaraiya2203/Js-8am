@@ -24,7 +24,7 @@
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="signup.html">SIGNUP</a>
-          </li>
+            </li>
             <li class="nav-item">
               <a class="nav-link active" href="login.html">LOGOUT</a>
             </li>
@@ -37,23 +37,23 @@
   <!-- form section start -->
   <section class="Login">
     <div class="container">
-      <form class="row Loginform  g-3  justify-content-center m-4  " action="#" method="post">
+      <form class="row Loginform  g-3  justify-content-center m-4 ">
         <div class="col-lg-4 col-md-6 col-sm-8 p-5  wrap">
           <div class="col-12">
             <h1 class="h1 text-center">Login</h1>
             <div class="mar">
 
-              <label for="uname">Username</label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <label for="email">Username</label>
+              <input type="text" placeholder="Enter Username" name="email" id="email" required>
 
             </div>
             <div class="mar">
-              <label for="psw">Password</label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
+              <label for="password">Password</label>
+              <input type="password" placeholder="Enter Password" name="password" id="password" required>
             </div>
           </div>
           <div class="col-12 text-center mt-3 mt-sm-4">
-            <button class="btn btn-primary w-100" type="submit">LOGIN</button>
+            <button class="btn btn-primary w-100" type="submit" onclick="Login(event)">LOGIN</button>
           </div>
         </div>
 
@@ -63,17 +63,43 @@
 
     </div>
 
+    <script>
+      const Login = (e) => {
+        e.preventDefault();
+        let obj = {
+
+          email: document.getElementById('email').value,
+          password: document.getElementById('password').value,
+        }
+        
+
+        fetch('http://localhost:4444/auth/login', {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(obj)
+        }).then(y=>y.json()).then(y => {
+             if(y.type)
+                {
+                
+                localStorage.setItem("token", JSON.stringify(y));
+                location.href = 'index.html'
+                
+                }
+          // location.href = 'index.html'
+          // console.log(y)
+        })
+
+      }
+    </script>
+
 
   </section>
   <!-- form section End -->
 
-  <script>
-
-
-  </script>
-
   <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+  <!-- <script src="js/script.js"></script> -->
 </body>
 
 </html>

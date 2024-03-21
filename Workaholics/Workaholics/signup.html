@@ -38,30 +38,26 @@
     <!-- form section start -->
     <section class="Signup">
         <div class="container">
-            <form class="row Signupform  g-3  justify-content-center m-4  " onsubmit="handleInput(event)">
+            <form class="row Signupform  g-3  justify-content-center m-4  ">
                 <div class="col-lg-5 col-md-6 col-sm-8 p-5  wrap">
                     <div class="col-12">
                         <h1 class="h1 text-center">SignUp</h1>
 
                         <div class="mar">
                             <label for="Category">Category</label>
-                            <!-- onchange="displayTextbox()" -->
-                            <select name="Category" id="Category"  onchange="displayTextbox()">
-                                <option value="Applicant">Applicant</option>
-                                <option value="Recruiter">Recruiter</option>
-                            </select>
+                            <input type="text" value="Recruiter" readonly>
                         </div>
                         <div class="mar">
 
                             <label for="name">Name</label>
-                            <input type="text" placeholder="Name" name="name" required>
+                            <input type="text" placeholder="Name" name="name" id="name" required>
 
                         </div>
 
                         <div class="mar">
 
                             <label for="email">Email</label>
-                            <input type="email" placeholder="Email" name="email" required>
+                            <input type="email" placeholder="Email" name="email" id="email" required>
 
                         </div>
                         <div class="mar pas">
@@ -69,9 +65,6 @@
                             <i class="fa-solid fa-eye-slash" onclick="myFunction()" id="eye"></i>
                             <!-- <i class="fa-solid fa-eye" onclick="myFunction()"></i> -->
                             <input type="password" placeholder="Enter Password" name="password" id="password" required>
-                        </div>
-                        <div class="Recruiter" id="Recruiter">
-
                             <div class="mar">
                                 <label for="textarea">Bio (upto 250 Words)</label>
                                 <!-- <textarea name="textarea" id="textarea" cols="30" rows="5" class="recruiter"></textarea> -->
@@ -84,67 +77,12 @@
                                     <option value="Applicant">Ind</option>
                                     <option value="Recruiter">Rec</option>
                                 </select>
-                                <input type="tel" name="phone" value="+91 " required />
+                                <input type="tel" name="phone" value="+91 " id="contact" required />
                             </div>
                         </div>
-                        <div class="Applicant" id="Applicant">
-                            <div class="row inst">
-
-                                <div class="col-6 mar">
-                                    <label for="InstitutionName">Institution Name #2</label>
-                                    <input type="text" name="InstitutionName">
-                                </div>
-                                <div class="col-3 mar">
-                                    <label for="StartYear">Start Year</label>
-                                    <input type="text" name="StartYear">
-                                </div>
-                                <div class="col-3 mar">
-                                    <label for="EndYear">End Year</label>
-                                    <input type="text" name="EndYear">
-                                </div>
-                            </div>
-                            <div class="col-12 text-center mt-3 mt-sm-4">
-                                <button class="btn btn-primary w-100" type="submit">ADD ANOTHER INTITUTION
-                                    DETAILS</button>
-                            </div>
-                            <div class="mar ">
-                                <label for="Skills">Skills</label>
-                                <input type="text" name="Skills">
-                                <p>Please enter to add skills</p>
-                            </div>
-                            Upload file
-                            <div class="row inst">
-
-                                <div class="col-3 mar">
-
-                                    <input type="file" name="File" class="choose" title="Add a File">
-                                </div>
-                                <div class="col-6 mar">
-                                    <input type="text" name="FileName">
-                                </div>
-                                <div class="col-3 mar">
-                                    <button class="Upload" type="submit" name="Upload" value="">Submit</button>
-                                </div>
-                            </div>
-                            <div class="row inst">
-
-                                <div class="col-3 mar">
-
-                                    <input type="file" name="File" class="choose" title="Add a File">
-                                </div>
-                                <div class="col-6 mar">
-                                    <input type="text" name="FileName">
-                                </div>
-                                <div class="col-3 mar">
-                                    <button class="Upload" type="submit" name="Upload" value="">Submit</button>
-                                </div>
-                            </div>
-                        </div>
-
-
 
                         <div class="col-12 text-center mt-3 mt-sm-4">
-                            <button class="btn btn-primary w-100" type="submit">SIGNUP</button>
+                            <button class="btn btn-primary w-100" type="submit" onclick="signUp(event)">SIGNUP</button>
                         </div>
                     </div>
 
@@ -155,9 +93,98 @@
     </section>
     <!-- form section End -->
 
-    <script src="js/app.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        const signUp = (e) => {
+            e.preventDefault();
+            let obj = {
+
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                type: "recruiter",
+                password: document.getElementById('password').value,
+                bio: document.getElementById('bio').value,
+                // contactNumber: document.getElementById('contact').value,
+            }
+
+           
+
+
+            fetch('http://localhost:4444/auth/signup', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+            }).then(y=>y.json()).then(y => {
+                if(y.type)
+                {
+                location.href = 'login.html'
+                }
+            })
+
+
+        }
+    </script>
 
 </body>
 
 </html>
+<!-- <div class="Recruiter" id="Recruiter">
+
+        </div> -->
+<!-- <div class="Applicant" id="Applicant">
+            <div class="row inst">
+
+                <div class="col-6 mar">
+                    <label for="InstitutionName">Institution Name #2</label>
+                    <input type="text" name="InstitutionName">
+                </div>
+                <div class="col-3 mar">
+                    <label for="StartYear">Start Year</label>
+                    <input type="text" name="StartYear">
+                </div>
+                <div class="col-3 mar">
+                    <label for="EndYear">End Year</label>
+                    <input type="text" name="EndYear">
+                </div>
+            </div>
+            <div class="col-12 text-center mt-3 mt-sm-4">
+                <button class="btn btn-primary w-100" type="submit">ADD ANOTHER INTITUTION
+                    DETAILS</button>
+            </div>
+            <div class="mar ">
+                <label for="Skills">Skills</label>
+                <input type="text" name="Skills">
+                <p>Please enter to add skills</p>
+            </div>
+            Upload file
+            <div class="row inst">
+
+                <div class="col-3 mar">
+
+                    <input type="file" name="File" class="choose" title="Add a File">
+                </div>
+                <div class="col-6 mar">
+                    <input type="text" name="FileName">
+                </div>
+                <div class="col-3 mar">
+                    <button class="Upload" type="submit" name="Upload" value="">Submit</button>
+                </div>
+            </div>
+            <div class="row inst">
+
+                <div class="col-3 mar">
+
+                    <input type="file" name="File" class="choose" title="Add a File">
+                </div>
+                <div class="col-6 mar">
+                    <input type="text" name="FileName">
+                </div>
+                <div class="col-3 mar">
+                    <button class="Upload" type="submit" name="Upload" value="">Submit</button>
+                </div>
+            </div>
+        </div> -->

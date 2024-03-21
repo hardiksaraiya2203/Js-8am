@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>Duplicate items</h1>
+        <p id="duplicate"></p>
+    </div>
+    <script>
+        const Arr = [2, 3, 4, 5, 4, 5];
+        let a = []
+
+        function duplicate() {
+
+            for (i = 0; i < Arr.length; i++) {
+                let iOf = Arr.indexOf(Arr[i])
+                let lOf = Arr.lastIndexOf(Arr[i])
+                if (iOf != lOf) {
+                    a.push(Arr[iOf])
+                }
+            }
+            console.log(a);
+
+        }
+        duplicate()
+
+    </script>
+</body>
+
+</html>
