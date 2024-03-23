@@ -71,7 +71,7 @@
           email: document.getElementById('email').value,
           password: document.getElementById('password').value,
         }
-        
+
 
         fetch('http://localhost:4444/auth/login', {
           method: "POST",
@@ -79,16 +79,13 @@
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(obj)
-        }).then(y=>y.json()).then(y => {
-             if(y.type)
-                {
-                
-                localStorage.setItem("token", JSON.stringify(y));
-                location.href = 'index.html'
-                
-                }
-          // location.href = 'index.html'
-          // console.log(y)
+        }).then(y => y.json()).then(y => {
+          if (y.type) {
+
+            localStorage.setItem("token", JSON.stringify(y));
+            location.href = 'index.html';
+
+          }
         })
 
       }
