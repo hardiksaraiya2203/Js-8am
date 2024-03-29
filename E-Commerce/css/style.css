@@ -140,7 +140,12 @@ nav form.d-flex .btn{
 
 
 /* Card CSS End */
-
+.section3 select{
+    padding: 15px 20px ;
+    background-color: #f0f0f0;
+    width: 100%;
+    text-align: center;
+}
 
 .Pop-Up {
 	-webkit-animation: text-pop-up-top 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

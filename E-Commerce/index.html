@@ -13,15 +13,7 @@
 
 <body>
   <div class="web-container">
-    <div class="select">
-        <select name="" id="select" onchange="dropDown()">
-            <option value="select" selected>select</option>
-            <option value="atoz">A to Z</option>
-            <option value="ztoa">Z to A</option>
-            <option value="lowtohigh">Low To High</option>
-            <option value="hightolow">High To Low</option>
-        </select>
-    </div>
+    
     <header>
       <div class="row px-5 justify-content-between align-content-center g-0 fsP">
         <div class="col-8 d-flex flex-wrap align-items-center justify-content-between">
@@ -155,13 +147,22 @@
 
 
           <aside class="col-3 d-inline-block">
-            <h2 class="h2 fsP fw-bold mt-3">Filter By</h2>
+            <!-- <h2 class="h2 fsP fw-bold mt-3">Filter By</h2>
             <button class="company-btn py-2 border-0 fw-bold w-100 green my-2" id="btn1" onclick="LowToHigh(a)">Price:
               High to Low
               <button class="company-btn py-2 border-0 fw-bold w-100 green my-2" onclick="LowToHigh(a)">Price: Low to
                 High</button>
               <button class="company-btn py-2 border-0 fw-bold w-100 green my-2" onclick="atoz(a)">A to Z</button>
-              <button class="company-btn py-2 border-0 fw-bold w-100 green my-2" onclick="ztoa(a)">Z to A</button>
+              <button class="company-btn py-2 border-0 fw-bold w-100 green my-2" onclick="ztoa(a)">Z to A</button> -->
+              <div class="select">
+                <select class="h2 fsP fw-bold mt-3" name="" id="select" onchange="dropDown()">
+                    <option  value="select" selected>Filter By</option>
+                    <option value="atoz">A to Z</option>
+                    <option value="ztoa">Z to A</option>
+                    <option value="lowtohigh">Low To High</option>
+                    <option value="hightolow">High To Low</option>
+                </select>
+            </div>
 
           </aside>
 

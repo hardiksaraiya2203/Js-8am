@@ -109,7 +109,7 @@
                 contactNumber: document.getElementById('contact').value,
             }
 
-           
+
 
 
             fetch('http://localhost:4444/auth/signup', {
@@ -118,10 +118,9 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(obj)
-            }).then(y=>y.json()).then(y => {
-                if(y.type)
-                {
-                location.href = 'login.html'
+            }).then(y => y.json()).then(y => {
+                if (y.type) {
+                    location.href = 'login.html'
                 }
             })
 

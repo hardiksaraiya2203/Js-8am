@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video autoplay src="videos/Real 4K HDR 60fps LG Jazz HDR UHD Chromecast Ultra.mkv" width="1000px" controls id="video"></video>
+    <script>
+        
+        let vid = document.getElementById("video")
+    //    vid.addEventListener("pause",function(v){
+    //     sessionStorage.setItem("time",v.target.currentTime)
+    // //   console.log(vid); 
+    // })
+
+    // vid.addEventListener("play",function(v){
+    //   let p = sessionStorage.getItem("time")
+    // //   console.log(vid);
+
+    //   v.target.currentTime = p;
+    // }) 
+
+    window.addEventListener("load",handleVideoPlay)
+
+function handleVideoPlay() {
+    // Your code here
+    vid.addEventListener("playing",function(v){
+        setInterval(function(){
+        sessionStorage.setItem("time1",v.target.currentTime);
+        },100)
+    })
+}
+
+    window.addEventListener("load",handleVideo)
+    function handleVideo(){
+        vid.addEventListener("pause",function(v){
+        setInterval(function(){
+            let p = sessionStorage.getItem("time1")
+            v.target.currentTime = p;
+        },200) 
+    })
+
+    // Add any other actions you want to perform when the video starts playing
+}
+
+
+
+    // setInterval(function(){
+    //     vid.addEventListener("DOMContentLoaded",function(e){
+    //         console.log(e);
+    //     // sessionStorage.setItem("time",v.target.currentTime)
+
+    //     })
+    // },1)
+
+    </script>
+</body>
+</html>

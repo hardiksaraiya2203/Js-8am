@@ -242,15 +242,14 @@ function mapCartItem() {
           <h4>${value.items.title}</h4>
           <h4 class="price">${value.items.price}</h4>
         </header>
+        <div id="productQuantity">
+        <button class="_23FHuj" fdprocessedid="3hp15"  onclick="decQty(${index})"> – </button>
+        <input type="text" class="_253qQJ" value="${value.quantity}" fdprocessedid="pecz9" id="inp">
+        <button class="_23FHuj" fdprocessedid="7l8pfo" onclick="incQty(${index})"> + </button>
+      </div>
       </div>
     </article>
-  </div>
-  <br>
-  <div id="productQuantity">
-              <button class="_23FHuj" fdprocessedid="3hp15" onclick="decQty(${index})"> – </button>
-            <input type="text" class="_253qQJ" value="${value.quantity}" fdprocessedid="pecz9" id="inp">
-            <button class="_23FHuj" fdprocessedid="7l8pfo" onclick="incQty(${index})"> + </button>
-            </div><br>`
+  </div>`
   })
 
   document.getElementById('totalAmount').innerHTML = mapCartItem.join(" ");

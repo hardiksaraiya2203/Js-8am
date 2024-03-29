@@ -106,15 +106,15 @@
                   <form>
                     <div class="mb-3">
                       <label for="ApplicationD" class="col-form-label">Application Deadline</label>
-                      <input type="date" class="form-control" id="deadline" />
+                      <input type="date" class="form-control" id="ApplicationD" />
                     </div>
                     <div class="mb-3">
                       <label for="quantity" class="col-form-label">Maximum Number Of Applicants</label>
-                      <input class="form-control" type="number" id="maxApplicants" name="quantity" min="1" max="100" />
+                      <input class="form-control" type="number" id="" name="quantity" min="1" max="100" />
                     </div>
                     <div class="mb-3">
                       <label for="Pquantity" class="col-form-label">Position Available</label>
-                      <input class="form-control" type="number" id="maxPositions" name="Pquantity" />
+                      <input class="form-control" type="number" id="Pquantity" name="maxPositions" />
                     </div>
                   </form>
                 </div>
@@ -160,11 +160,13 @@
   <script src="js/bootstrap.bundle.min.js"></script>
 
   <script>
-    let jobData = [];
 
+    // GET DATA FROM DATABASE 
+
+    let jobData = [];
     let t = JSON.parse(localStorage.getItem("token")).token;
     const myJobs = () => {
-      fetch("http://localhost:4444/api/jobs", {
+      fetch("http://localhost:4444/api/jobs?myjobs=1", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -179,8 +181,9 @@
         });
     };
 
+    // DISPLAY DATA OF JOBS FROM DATABASE 
     const display = (jobs) => {
-      let d = jobs.map(function (value) {
+      let d = jobs.map(function (value, index) {
         return `<section class="MyjobCard" id="display">
         <div class="container">
           <div class="row justify-content-between  p-4">
@@ -200,9 +203,9 @@
               <div class="miniCardBtn">
                 <a href="applications.html" class="btn btn-primary">VIEW APPLICATIONS</a>
                 <button type="button" class="btn btn-blue" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                  data-bs-whatever="UPDATE DETAILS" >UPDATE DETAILS</button>
+                  data-bs-whatever="UPDATE DETAILS" onclick="getData(${index})">UPDATE DETAILS</button>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2"
-                  data-bs-whatever="DELETEJOB">DELETE JOB</button>
+                  data-bs-whatever="DELETEJOB" onclick="getData(${index})">DELETE JOB</button>
               </div>
 
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -211,7 +214,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h1 class="modal-title fs-5 secH text-center w-100" id="exampleModalLabel">Update Details</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="UpdateJob(event)"></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
                     </div>
                     <div class="modal-body">
                       <form>
@@ -230,7 +233,7 @@
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary">UPDATE</button>
+                      <button type="button" class="btn btn-primary" onclick="UpdateJob(event)">UPDATE</button>
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
                     </div>
                   </div>
@@ -247,7 +250,7 @@
                     </div>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary">DELETE</button>
+                      <button type="button" class="btn btn-primary" onclick="DeleteJob()">DELETE</button>
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
                     </div>
                   </div>
@@ -262,34 +265,70 @@
       document.getElementById("display").innerHTML = d.join(" ");
     };
 
-    
+
+    // RETRIEVING DATA FROM DATABASE FOR UPDATE 
+
+    // DISPLAYING RETRIEVED DATA 
+    const dis = (y) => {
+      document.getElementById('ApplicationD').value = y.deadline;
+      document.getElementById('quantity').value = y.maxApplicants;
+      document.getElementById('Pquantity').value = y.maxPositions;
+    }
+
+    let obj = {}
+    const getData = (index) => {
+      let a = jobData[index];
+      obj = a;
+      console.log(a);
+      dis(a)
+    }
+
+    // UPDATING JOB AND PUTTING IT IN DATABASE 
     const UpdateJob = (e) => {
+
       e.preventDefault();
-      let update = {
 
-        deadline: document.getElementById('deadline').value,
-        maxApplicants: document.getElementById('maxApplicants').value,
-        maxPositions: document.getElementById('maxPositions').value,
-        _id: jobData._id,
-      }
 
-      fetch('http://localhost:4444/api/jobs?myjobs=1', {
-        method: "GET",
+      obj.deadline = document.getElementById('ApplicationD').value;
+      obj.maxApplicants = document.getElementById('quantity').value;
+      obj.maxPositions = document.getElementById('Pquantity').value;
+
+
+      fetch(`http://localhost:4444/api/jobs/${obj._id}`, {
+        method: "PUT",
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${t}`
         },
-        body: JSON.stringify(update)
+        body: JSON.stringify(obj)
       }).then(y => y.json())
         .then(y => {
           console.log(y);
+          window.location.href = 'myjobs.html';
         })
     }
 
 
+    const DeleteJob = (e) => {
+
+      // e.preventDefault();
+
+      fetch(`http://localhost:4444/api/jobs/${obj._id}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${t}`
+        },
+        body: JSON.stringify(obj)
+      }).then(y => y.json())
+        .then(y => {
+          console.log(y);
+          window.location.href = 'myjobs.html';
+        })
+    }
 
 
-
+    // SEARCH JOBS BASED ON TITLE 
     const Search = (e) => {
       e.preventDefault();
 

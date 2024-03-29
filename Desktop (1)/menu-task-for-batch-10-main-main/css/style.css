@@ -75,6 +75,10 @@ margin: 5px;
 .navbar .col-auto a:hover{
     color: #fb9332;
 }
+.price{
+    color: #fb9332;
+}
+
 .btn{
     text-transform: capitalize !important;
     padding: 10px 20px !important;
@@ -228,9 +232,41 @@ width: 132px;
     gap: 24px;
     margin-bottom: 30px;
 }
+#productQuantity button{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border-color: #00000044;
+}
+#productQuantity{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
 
-
-
+#productQuantity input{
+    width: 140px;
+    height: 39px;
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0px 0px 5px 3px #fb9332;
+    margin: 0 10px;
+    padding: 5px;
+}
+.photo {
+    border-color: #fb9332;
+}
+.modal-body{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
 
 
 @media only screen and (max-width: 1200px){
